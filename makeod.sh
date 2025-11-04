@@ -6,14 +6,24 @@
 
 function make_generic_file() {
     filename="${1}"
-    filename="${filename%.*}"
-    echo "${filename}.odin"
+    filename="${filename%.*}.odin"
+    touch "${filename}"
+    echo "package ${filename%.*}" > "${filename}"
+    echo >> "${filename}"
+    echo "import \"core:fmt\"" >> "${filename}"
+    echo >> "${filename}"
+    echo "main :: proc() {" >> "${filename}"
+    echo "  fmt.println(\"Hellope!\")" >> "${filename}"
+    echo "}" >> "${filename}"
 }
 
 function helper() {
-    echo "${0} <option> <filename>"
-
+    echo
+    echo "${0} <options> <filename>"
+    echo
+    echo
     echo "Avaliable options:"
+    echo
     echo "-g:   create generic odin file."
     echo "-r:   compile and run compiled odin file."
     echo "-h:   display this help file."
@@ -22,17 +32,20 @@ function helper() {
 
 opstring="g:r:h"
 
-while getops "${opstring}" opt; do
+while getopts "${opstring}" opt; do
     case "${opt}" in
         g)
+            file="${OPTARG}"
+            make_generic_file "${file}"
             ;;
         r)
             ;;
         h)
             # call helper function
-            helper()
+            helper
             ;;
         *)
             echo "Invalid Input."
+            ;;
     esac
 done
