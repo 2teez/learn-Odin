@@ -49,11 +49,12 @@ function helper() {
     echo
     echo "-g:   create generic odin file."
     echo "-r:   compile and run compiled odin file."
+    echo "-s:   compile and run standalone compiled odin file."
     echo "-h:   display this help file."
     exit 1
 }
 
-opstring="g:r:h"
+opstring="g:s:r:h"
 
 while getopts "${opstring}" opt; do
     case "${opt}" in
@@ -71,6 +72,15 @@ while getopts "${opstring}" opt; do
         r)
             file="${OPTARG}"
             odin run "${file}" -vet -strict-style
+            ;;
+        s)
+            file="${OPTARG}"
+            file_ext="file%.*"
+            if ! [[ "file_ext" != "odin" ]]; then
+                echo "compile and run only odin file!"
+                exit 1
+            fi
+            odin run "${file}" -file -vet -strict-style
             ;;
         h)
             # call helper function
