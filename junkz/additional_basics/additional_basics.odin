@@ -14,6 +14,33 @@ main :: proc() {
 	} else {
 		fmt.println("You are in the right age, the right time.!")
 	}
+	// for -loop, for-each and for
+	// are all you use in odin programming langauge
+	i := 0
+	for {
+		fmt.println(i)
+		i += 1
+		// without the if statement the for loop statement
+		// will loop forever!
+		if i == 10 {
+			break
+		}
+	}
+	// another fo loop in opl
+	i = 0
+	for i < 10 {
+		fmt.println(i)
+		i += 1
+	}
+	//
+	// using c-type for-loop
+	for j := 0; j < 10; j += 1 {
+		fmt.println(j)
+	}
+	// another for which is for-each
+	for ai in 0 ..< 12 {
+		fmt.println(ai)
+	}
 }
 
 // checking out procedure in odin
