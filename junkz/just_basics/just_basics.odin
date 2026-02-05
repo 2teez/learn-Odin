@@ -13,7 +13,7 @@ main :: proc() {
 	for value in ten_ints {
 		counter += 1
 		if is_bigger_than(value, cmp) {
-			fmt.printfln("ten_int[%v]: %v, is bigger than %v\n", counter, value, cmp)
+			fmt.printfln("ten_int[%v]: %v, is bigger than %v", counter, value, cmp)
 		}
 	}
 }
