@@ -41,6 +41,18 @@ main :: proc() {
 	for ai in 0 ..< 12 {
 		fmt.println(ai)
 	}
+	// arrays in odin
+	ten_ints: [10]int = {61, 81, 12, 41, 5, 10, 1234, 8, 4, 1}
+	five_floats := [5]f32{5, 8, 2.5, 0.73, 0.00031}
+
+	// print array
+	for value in ten_ints {
+		fmt.println(value)
+	}
+	// reverse and print the float array
+	#reverse for fvalue in five_floats {
+		fmt.println(fvalue)
+	}
 }
 
 // checking out procedure in odin
