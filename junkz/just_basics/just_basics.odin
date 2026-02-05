@@ -9,9 +9,11 @@ main :: proc() {
 
 	cmp := 6
 
+	counter: int
 	for value in ten_ints {
+		counter += 1
 		if is_bigger_than(value, cmp) {
-			fmt.printfln("%v id bigger than %v\n", value, cmp)
+			fmt.printfln("ten_int[%v]: %v, is bigger than %v\n", counter, value, cmp)
 		}
 	}
 }
