@@ -25,6 +25,26 @@ main :: proc() {
 	case .South:
 		fmt.println("oil drips.")
 	}
+	//
+	// using union and find the size of the union
+	// union takes the size of the largest
+	// item in the union
+	my_union: My_Union = int(7)
+	fmt.println(print_union_size(my_union))
+
+	my_union = f32(0.78)
+	fmt.println(print_union_size(my_union))
+
+	my_union = Person_Data {
+		health = 34,
+		age    = 24,
+	}
+	fmt.println(print_union_size(my_union))
+}
+
+// proc with union
+print_union_size :: proc(kind: My_Union) -> int {
+	return size_of(kind)
 }
 
 // struct
@@ -40,4 +60,16 @@ Direction :: enum {
 	East,
 	West,
 	South,
+}
+// using union
+My_Union :: union {
+	f32,
+	int,
+	Person_Data,
+}
+
+//
+Person_Data :: struct {
+	health: f32,
+	age:    int,
 }
