@@ -57,3 +57,13 @@ print_person_info_using_pt :: proc(p: ^Person) {
 print_person_info :: proc(p: Person) {
 	fmt.println(p.name, p.age, p.gender)
 }
+
+/*@init
+startup :: proc() {
+	fmt.println("Starting up a program")
+}
+
+@fini
+shutdown :: proc() {
+	fmt.println("Ending a program...")
+	}*/
